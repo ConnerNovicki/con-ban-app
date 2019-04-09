@@ -1,0 +1,12 @@
+.card {
+    margin: 1rem 0;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.color-picker__container {
+    margin-top: 1rem;
+}
