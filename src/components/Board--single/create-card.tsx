@@ -8,8 +8,7 @@ import styles from './styles.module.scss'
 
 const COLORS = ['#42f4d9', '#6cef40', '#e87d2c', '#f25c9d']
 
-export default function({ columnId, boardId }) {
-    const [ isAddingCard, setIsAddingCard ] = useState(false)
+export default function({ columnId, boardId, isAddingCard, setIsAddingCard }) {
     const [ selectedColor, setSelectedColor ] = useState(COLORS[0])
     const [ nameInputText, setNameInputText ] = useState('')
 

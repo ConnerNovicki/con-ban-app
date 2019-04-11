@@ -21,7 +21,6 @@ export default function({ board }) {
                 >
                     {(deleteBoard, { loading, error }) => (
                         <Card
-                            loading={loading}
                             title={board.name}
                             bordered={false}
                             extra={

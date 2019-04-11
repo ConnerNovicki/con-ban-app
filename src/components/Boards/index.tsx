@@ -32,7 +32,7 @@ function Boards(props) {
         <div className={styles['grid-container']}>
             <Row gutter={16}>
                 {getBoardsForUser.map(board => 
-                    <Col span={6}>
+                    <Col span={6} style={{ paddingBottom: '10px' }}>
                         <Board board={board}/>
                     </Col>
                 )}

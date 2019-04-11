@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
@@ -10,7 +10,8 @@ import { ApolloProvider } from "react-apollo";
 import { setContext } from 'apollo-link-context';
 
 const httpLink = createHttpLink({
-    uri: "https://con-ban-api.herokuapp.com/"
+    // uri: "https://con-ban-api.herokuapp.com/"
+    uri: 'http://localhost:4000'
 });
 
 const authLink = setContext((_, { headers }) => {

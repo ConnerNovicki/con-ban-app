@@ -10,6 +10,7 @@ export default function({ userId }) {
 
     const resetAddBoard = () => {
         setIsModalOpen(false)
+        setInputText('')
     }
 
     return (

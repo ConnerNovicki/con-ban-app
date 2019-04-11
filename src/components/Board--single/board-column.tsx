@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Mutation } from "react-apollo";
 import { Icon, Button, Card, Col, List } from "antd";
 import { DELETE_COLUMN } from "../../graphql/mutations";
@@ -7,6 +7,7 @@ import { GET_BOARD } from '../../graphql/queries';
 import BoardCard from './board-card';
 
 export default function({ column, boardId }) {
+    const [ isAddingCard, setIsAddingCard ] = useState(false)
     return (
         <Mutation
             mutation={DELETE_COLUMN}
@@ -21,11 +22,14 @@ export default function({ column, boardId }) {
                         title={column.name}
                         extra={<Button onClick={() => deleteColumn()}><Icon type="close"/></Button>}
                     >
-                        <List
-                            itemLayout="horizontal"
-                            dataSource={column.cards}
-                            renderItem={(card: any) => <BoardCard card={card} boardId={boardId} />}/>
-                        <CreateCard columnId={column.id} boardId={boardId}/>
+                        {((isAddingCard && column.cards.length) || (!isAddingCard)) &&
+                            <List
+                                itemLayout="horizontal"
+                                dataSource={column.cards}
+                                renderItem={(card: any) => <BoardCard card={card} boardId={boardId} />}
+                            />
+                        }
+                        <CreateCard columnId={column.id} boardId={boardId} setIsAddingCard={setIsAddingCard} isAddingCard={isAddingCard}/>
                     </Card>
                     {loading && <Icon type="loading" />}
                 </Col>
