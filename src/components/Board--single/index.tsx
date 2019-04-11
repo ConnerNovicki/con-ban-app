@@ -17,8 +17,8 @@ function BoardSingle(props) {
             const { getBoard } = data
             const { id, name, columns } = getBoard
             return (
-                <div>
-                    <h1 style={{ padding: '1rem' }}>{name}</h1>
+                <div style={{ padding: '1rem' }}>
+                    <h1>{name}</h1>
                     <Row gutter={10}>
                         {!!columns &&
                             columns.map((column: any) => <BoardColumn column={column} boardId={boardId}/> )
